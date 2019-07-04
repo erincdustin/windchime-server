@@ -8,6 +8,7 @@ const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const playlistRouter = require('./playlists/playlist-router');
 const userRouter = require('./users/users-router');
+const weatherRouter = require('./weather/weather-router');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/playlists', playlistRouter);
 app.use('/api/users', userRouter);
+app.use('/api/weather', weatherRouter);
 
 app.use(function errorHandler(error, req, res, next) {
   let response;
