@@ -16,25 +16,6 @@ const PlaylistService = {
       .first();
   },
 
-  // getReviewsForThing(db, thing_id) {
-  //   return db
-  //     .from('thingful_reviews AS rev')
-  //     .select(
-  //       'rev.id',
-  //       'rev.rating',
-  //       'rev.text',
-  //       'rev.date_created',
-  //       ...userFields,
-  //     )
-  //     .where('rev.thing_id', thing_id)
-  //     .leftJoin(
-  //       'thingful_users AS usr',
-  //       'rev.user_id',
-  //       'usr.id',
-  //     )
-  //     .groupBy('rev.id', 'usr.id')
-  // },
-
   insertPlaylist(db, newPlaylist) {
     return db
       .insert(newPlaylist)
@@ -72,10 +53,5 @@ const PlaylistService = {
     };
   },
 };
-
-// const userFields = [
-//   'usr.id AS user:id',
-//   'usr.date_created AS user:date_created',
-// ];
 
 module.exports = PlaylistService;

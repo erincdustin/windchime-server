@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-// const path = require('path');
 const PlaylistService = require('./playlist-service');
 
 const playlistRouter = express.Router();
@@ -43,27 +42,5 @@ playlistRouter
       })
       .catch(next);
   });
-
-  
-
-// /* async/await syntax for promises */
-// async function checkThingExists(req, res, next) {
-//   try {
-//     const thing = await PlaylistService.getById(
-//       req.app.get('db'),
-//       req.params.thing_id
-//     )
-
-//     if (!thing)
-//       return res.status(404).json({
-//         error: `Thing doesn't exist`
-//       })
-
-//     res.thing = thing
-//     next()
-//   } catch (error) {
-//     next(error)
-//   }
-// }
 
 module.exports = playlistRouter;
