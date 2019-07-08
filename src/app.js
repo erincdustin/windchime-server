@@ -8,7 +8,6 @@ const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const playlistRouter = require('./playlists/playlist-router');
 const userRouter = require('./users/users-router');
-const weatherRouter = require('./weather/weather-router');
 const config = require('./config');
 const axios = require('axios');
 
