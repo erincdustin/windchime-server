@@ -3,7 +3,7 @@
 
 const app = require('../src/app');
 
-describe('App', ()=> {
+describe.only('App', ()=> {
   describe('GET /', () => {
     it('responds with 200 containing "Hello World"', () => {
       return supertest(app)
@@ -12,9 +12,9 @@ describe('App', ()=> {
     });
   });
   
-  describe.skip('GET /api/weather', () => {
+  describe('GET /api/weather', () => {
     it('responds with 200 and weather results', () => {
-      const postalCode = JSON.stringify({'postalCode': 34292});
+      const postalCode = JSON.stringify({'postalCode': '34292'});
       return supertest(app)
         .post('/api/weather')
         .send(postalCode)
