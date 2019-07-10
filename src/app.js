@@ -26,29 +26,12 @@ app.get('/', (req, res) => {
   res.send('Hello, world');
 });
 
-// app.post('/api/weather', async (req, res) => {
-//   const { postalCode } = req.body;
-//   const CITY_BASE_URL = `http://dataservice.accuweather.com/locations/v1/postalcodes/US/search?apikey=${config.WEATHER_API_KEY}&q=${postalCode}`;
-//   try {
-//     let response = await axios.get(CITY_BASE_URL)
-//         let locationKey = response.data[0].Key;
-//         const WEATHER_BASE_URL = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=HGhQvGsArNhNHkbK4EAnuX09P8mP8Qk8&language=en-us&details=true`;
-//         let finalRes = await axios.get(WEATHER_BASE_URL)
-//             console.log(finalRes.data[0]);
-//             res.send(finalRes.data[0]);
-//   } catch(error) {
-//     console.log(error)
-//     res.status(500).send({ error })
-//   }
-// });
-
 app.post('/api/weather', async (req, res) => {
   const { postalCode } = req.body;
   const CITY_BASE_URL = `https://api.openweathermap.org/data/2.5/weather?zip=${postalCode}&units=Imperial&APPID=${config.NEW_API_KEY}`;
   try {
     let response = await axios.get(CITY_BASE_URL)
       console.log(response.data.clouds.all * 100)
-      // res.send(response.data)
         let finalRes = response.data;
             console.log(finalRes.clouds.all*100)
             res.send(finalRes);
