@@ -52,6 +52,16 @@ describe.only('User Router', ()=> {
       )
     );
 
+    it('responds with 400 and error message', () => {
+      const newUser = {
+      };
+
+      return supertest(app)
+        .post('/api/users')
+        .send(newUser)
+        .expect(400, { error: 'Missing ID in request body' });
+    });
+
     it('responds with 201 containing the created user', () => {
       const newUser = {
         id: '123456ABC'

@@ -31,13 +31,11 @@ app.post('/api/weather', async (req, res) => {
   const CITY_BASE_URL = `https://api.openweathermap.org/data/2.5/weather?zip=${postalCode}&units=Imperial&APPID=${config.NEW_API_KEY}`;
   try {
     let response = await axios.get(CITY_BASE_URL)
-      console.log(response.data.clouds.all * 100)
         let finalRes = response.data;
-            console.log(finalRes.clouds.all*100)
             res.send(finalRes);
   } catch(error) {
     console.log(error)
-    res.status(500).send({ error })
+    res.status(500).send({ error: 'Internal server error'})
   }
 });
 

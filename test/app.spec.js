@@ -3,22 +3,21 @@
 
 const app = require('../src/app');
 
-describe.only('App', ()=> {
-  describe('GET /', () => {
-    it('responds with 200 containing "Hello World"', () => {
-      return supertest(app)
-        .get('/')
-        .expect(200, 'Hello, world');
-    });
-  });
-  
-  describe('GET /api/weather', () => {
+describe('App', ()=> {  
+  describe('POST /api/weather', () => {
     it('responds with 200 and weather results', () => {
-      const postalCode = JSON.stringify({'postalCode': '34292'});
+      const postalCode = { 'postalCode': '34292' };
       return supertest(app)
         .post('/api/weather')
         .send(postalCode)
         .expect(200);
+    });
+
+    it('responds with 500', () => {
+      return supertest(app)
+        .post('/api/weather')
+        .send()
+        .expect(500, { error: 'Internal server error'} );
     });
   });
 

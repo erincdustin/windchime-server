@@ -57,12 +57,43 @@ describe.only('Playlist Router', ()=> {
       )
     );
 
+    it('responds with 400 nd missing playlist_id message', () => {
+      const testUser = testUsers[0];
+      const newPlaylistNoId = {
+        energy: '0.50',
+        valence: '0.30',
+        tempo: null,
+        popularity: null,
+        user_id: testUser.id
+      };
+
+      return supertest(app)
+        .post('/api/playlists')
+        .send(newPlaylistNoId)
+        .expect(400, {error: `Missing 'playlist_id' in request body`});
+    });
+
+    it('responds with 400 nd missing user_id message', () => {
+      const newPlaylistNoUser = {
+        playlist_id: '43291',
+        energy: '0.50',
+        valence: '0.30',
+        tempo: null,
+        popularity: null,
+      };
+
+      return supertest(app)
+        .post('/api/playlists')
+        .send(newPlaylistNoUser)
+        .expect(400, {error: `Missing 'user_id' in request body`});
+    });
+
     it('responds with 201 containing the created playlist', () => {
       const testUser = testUsers[0];
       const newPlaylist = {
         playlist_id: '43291',
-        energy: parseFloat(.5),
-        valence: parseFloat(.3),
+        energy: '0.50',
+        valence: '0.30',
         tempo: null,
         popularity: null,
         user_id: testUser.id

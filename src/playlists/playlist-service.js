@@ -1,8 +1,5 @@
 'use strict';
 
-// const xss = require('xss');
-// const Treeize = require('treeize');
-
 const PlaylistService = {
   getAllPlaylists(db) {
     return db
