@@ -4,19 +4,19 @@ function makeUsersArray() {
   return [
     {
       id: '1',
-      date_created: new Date('2029-01-22T21:28:32.615Z'),
+      date_created: '2029-01-22T21:28:32.615Z',
     },
     {
       id: '2',
-      date_created: new Date('2029-01-22T21:28:32.615Z'),
+      date_created: '2029-01-22T21:28:32.615Z',
     },
     {
       id: '3',
-      date_created: new Date('2029-01-22T21:28:32.615Z'),
+      date_created: '2029-01-22T21:28:32.615Z',
     },
     {
       id: '4',
-      date_created: new Date('2029-01-22T21:28:32.615Z'),
+      date_created: '2029-01-22T21:28:32.615Z',
     },
   ]
 }
@@ -29,7 +29,7 @@ function makePlaylistArray(users) {
       valence: '0.45',
       tempo: null,
       popularity: null,
-      date_created: new Date('2029-01-22T21:28:32.615Z'),
+      date_created: '2029-01-22T21:28:32.615Z',
       user_id: users[0].id,
       },
     {
@@ -38,7 +38,7 @@ function makePlaylistArray(users) {
       valence: '0.70',
       tempo: '0.80',
       popularity: 10,
-      date_created: new Date('2029-01-22T21:28:32.615Z'),
+      date_created: '2029-01-22T21:28:32.615Z',
       user_id: users[0].id,
       },
     {
@@ -47,7 +47,7 @@ function makePlaylistArray(users) {
       valence: null,
       tempo: '0.55',
       popularity: 30,
-      date_created: new Date('2029-01-22T21:28:32.615Z'),
+      date_created: '2029-01-22T21:28:32.615Z',
       user_id: users[1].id,
       },
     {
@@ -56,7 +56,7 @@ function makePlaylistArray(users) {
       valence: null,
       tempo: null,
       popularity: null,
-      date_created: new Date('2029-01-22T21:28:32.615Z'),
+      date_created: '2029-01-22T21:28:32.615Z',
       user_id: users[2].id,
       },
   ]

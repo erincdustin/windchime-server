@@ -46,7 +46,7 @@ const PlaylistService = {
       valence: playlist.valence,
       tempo: playlist.tempo,
       popularity: playlist.popularity,
-      date_created: new Date(playlist.date_created)
+      date_created: playlist.date_created
     };
   },
 };
