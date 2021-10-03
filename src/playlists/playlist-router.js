@@ -21,7 +21,7 @@ playlistRouter
     const newPlaylist = { playlist_id, user_id };
 
     for (const [key, value] of Object.entries(newPlaylist))
-      if (value == null)
+      if (value === null)
         return res.status(400).json({
           error: `Missing '${key}' in request body`
         });
